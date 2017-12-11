@@ -13,7 +13,9 @@ import java.util.Date;
 import java.util.Calendar;
 import java.util.Random;
 import java.util.Timer;
+import javax.swing.JOptionPane;
 import javax.swing.table.TableModel;
+import java.util.*;
 
 
 /**
@@ -25,6 +27,7 @@ public class orderForm1 extends javax.swing.JFrame {
             double lunch = 8.9;
             double dinner = 8.5;
  
+            List<String> food;
     /**
      * Creates new form orderForm1
      */
@@ -73,9 +76,9 @@ public class orderForm1 extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtName = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        txtContact = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         date = new javax.swing.JLabel();
         time = new javax.swing.JTextField();
@@ -83,6 +86,7 @@ public class orderForm1 extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         txtTotalAmount = new javax.swing.JTextField();
+        btnOrderDetail = new javax.swing.JButton();
         btnPlaceOrder = new javax.swing.JButton();
         lblRestaurant = new javax.swing.JLabel();
         btnCancel = new javax.swing.JButton();
@@ -102,6 +106,7 @@ public class orderForm1 extends javax.swing.JFrame {
         item1 = new javax.swing.JLabel();
         item2 = new javax.swing.JLabel();
         item3 = new javax.swing.JLabel();
+        btnReset = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -124,18 +129,18 @@ public class orderForm1 extends javax.swing.JFrame {
         jLabel2.setToolTipText("");
         jLabel2.setName("lblCustomerTelp"); // NOI18N
 
-        jTextField1.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
-        jTextField1.setToolTipText("Name");
-        jTextField1.setName("txtName"); // NOI18N
+        txtName.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
+        txtName.setToolTipText("Name");
+        txtName.setName("txtName"); // NOI18N
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
         jLabel3.setText("Order Time: ");
         jLabel3.setToolTipText("");
         jLabel3.setName("lblCustomerName"); // NOI18N
 
-        jTextField3.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
-        jTextField3.setToolTipText("Contact No");
-        jTextField3.setName("txtContactNo"); // NOI18N
+        txtContact.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
+        txtContact.setToolTipText("Contact No");
+        txtContact.setName("txtContactNo"); // NOI18N
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
         jLabel4.setText("Order Date: ");
@@ -164,11 +169,11 @@ public class orderForm1 extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtContact, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -183,14 +188,14 @@ public class orderForm1 extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(time, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtContact, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(date, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(23, Short.MAX_VALUE))
@@ -221,16 +226,30 @@ public class orderForm1 extends javax.swing.JFrame {
         txtTotalAmount.setEnabled(false);
         txtTotalAmount.setName("txtTotalOrderAmount"); // NOI18N
 
+        btnOrderDetail.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        btnOrderDetail.setText("Order Detail");
+        btnOrderDetail.setEnabled(false);
+        btnOrderDetail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOrderDetailActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtTotalAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(131, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtTotalAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap(268, Short.MAX_VALUE)
+                        .addComponent(btnOrderDetail)))
+                .addContainerGap(59, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -239,11 +258,14 @@ public class orderForm1 extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(txtTotalAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnOrderDetail, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         btnPlaceOrder.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         btnPlaceOrder.setText("Place Order");
+        btnPlaceOrder.setEnabled(false);
         btnPlaceOrder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPlaceOrderActionPerformed(evt);
@@ -276,14 +298,29 @@ public class orderForm1 extends javax.swing.JFrame {
         txtQty1.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
         txtQty1.setText("0");
         txtQty1.setName("txtTotalOrderAmount"); // NOI18N
+        txtQty1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtQty1KeyTyped(evt);
+            }
+        });
 
         txtQty2.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
         txtQty2.setText("0");
         txtQty2.setName("txtTotalOrderAmount"); // NOI18N
+        txtQty2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtQty2KeyTyped(evt);
+            }
+        });
 
         txtQty3.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
         txtQty3.setText("0");
         txtQty3.setName("txtTotalOrderAmount"); // NOI18N
+        txtQty3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtQty3KeyTyped(evt);
+            }
+        });
 
         jLabel8.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel8.setText("Unit Price");
@@ -320,20 +357,28 @@ public class orderForm1 extends javax.swing.JFrame {
         txtSubtotal3.setName("txtTotalOrderAmount"); // NOI18N
 
         item1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        item1.setText("Breakfast Set");
+        item1.setText("Chicken Chop Rice");
         item1.setToolTipText("");
         item1.setName("lblCustomerTelp"); // NOI18N
 
         item2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        item2.setText("Lunch Set");
+        item2.setText("Fish Chop Rice");
         item2.setToolTipText("");
         item2.setName("lblCustomerTelp"); // NOI18N
 
         item3.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        item3.setText("Dinner Set");
+        item3.setText("Pork Chop Rice");
         item3.setToolTipText("");
         item3.setName("lblCustomerTelp"); // NOI18N
         item3.setRequestFocusEnabled(false);
+
+        btnReset.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        btnReset.setText("Reset");
+        btnReset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnResetActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -388,7 +433,8 @@ public class orderForm1 extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnCancel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnPlaceOrder, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnSumTotal, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(btnSumTotal, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnReset, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -404,34 +450,35 @@ public class orderForm1 extends javax.swing.JFrame {
                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtQty1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtprice1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtSubtotal1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(item1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtQty1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtprice1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtSubtotal1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(item1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnSumTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(txtQty2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(txtprice2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(txtSubtotal2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(item2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtQty3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtprice3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtSubtotal3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(item3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btnSumTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(36, 36, 36)
+                .addGap(3, 3, 3)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtQty3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtprice3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtSubtotal3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(item3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnPlaceOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(13, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         btnSumTotal.getAccessibleContext().setAccessibleDescription("");
@@ -441,7 +488,9 @@ public class orderForm1 extends javax.swing.JFrame {
 
     private void btnPlaceOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlaceOrderActionPerformed
         // TODO add your handling code here:
-        System.out.println("Thank for Your Order.\n");
+        orderForm1.detailBox("Thanks For You Using this System Ordering Foods\n"
+                + "Your food will be arrive within 1 hour", "Customer Detail");
+        System.exit(0);
     }//GEN-LAST:event_btnPlaceOrderActionPerformed
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
@@ -456,17 +505,25 @@ public class orderForm1 extends javax.swing.JFrame {
 
     private void btnSumTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSumTotalActionPerformed
         // TODO add your handling code here:
+            food = new ArrayList<String>(); //an array for store item and qty
+            
 
-            double qty1 =0  ,qty2=0 ,qty3=0;
+            
+            
+            double qty1  ,qty2 ,qty3;
              //convert those to Double
-            if(txtQty1.getText() == ""){
+            if(txtQty1.getText() == ""){ //if there qty are empty it will directly show as a 0
              qty1= 0;
             }
+            
+            
             else{
                 qty1 = Double.parseDouble(txtQty1.getText());
+
             }
             if(txtQty2.getText() != ""){
              qty2 = Double.parseDouble(txtQty2.getText());
+
             }
             else{
                 qty2= 0;
@@ -477,12 +534,15 @@ public class orderForm1 extends javax.swing.JFrame {
             else{
                 qty3= 0;
             }
+            
 
+                
+            
             double subtotal1=0,subtotal2=0,subtotal3=0, totalAmount=0;
             
 
         
-        subtotal1 = qty1 * breakfast;
+        subtotal1 = qty1 * breakfast; //formula to calculate the subtotal
         subtotal2 = qty2 * lunch;
         subtotal3 = qty3 * dinner;
         
@@ -495,17 +555,123 @@ public class orderForm1 extends javax.swing.JFrame {
         String sub3 = String.format("%.2f", subtotal3);
         txtSubtotal3.setText(sub3);
         
-        totalAmount = subtotal1+subtotal2+subtotal3 ;
+        totalAmount = subtotal1+subtotal2+subtotal3 ; //sum all the subtotal to get total amount
         
         String total = String.format("%.2f", totalAmount);
         txtTotalAmount.setText(total);
-          
         
+        
+        if (totalAmount != 0){
+            
+        
+          
+        btnPlaceOrder.setEnabled(true); //enable the place order button for user comfirm order
+        
+        btnOrderDetail.setEnabled(true);//enable the Order Detail for user view their ordering item.
+        
+            if (subtotal1 != 0){
+                String addfood1 = item1.getText() + "   " + txtQty1.getText() + "   RM" + sub1.toString();
+                food.add(addfood1);
+            }   
+  
+
+            if (subtotal2 != 0){
+                String addfood2 = "\n"+ item2.getText() + "     " + txtQty2.getText() +"        RM"+ sub2.toString() ;
+                food.add(addfood2);
+            }
+            if (subtotal3 != 0){
+                String addfood3 = "\n"+ item3.getText() + "     " + txtQty3.getText() + "       RM" + sub3.toString();
+                food.add(addfood3);
+            }
+        
+            txtQty1.setEnabled(false); //unenable all the textbox don't let user type anything more
+            txtQty2.setEnabled(false);
+            txtQty3.setEnabled(false);
+            txtName.setEnabled(false);
+            txtContact.setEnabled(false);
+        
+        orderForm1.detailBox("Name : " + txtName.getText()
+                + "\nTime : " + time.getText()
+                + "\nDate : " + date.getText()
+                +"\nFood Ordering   Quantity    Subtotal" 
+                +"\n" + food.toString()
+                +"\nTotal Amount: RM" + total.toString(), "Customer Detail");
+        }
+        else {
+            
+            
+            orderForm1.infoBox("You are not order anything, Please Select a item/s. Or else Exit.", "Information");
+           
+        }
     }//GEN-LAST:event_btnSumTotalActionPerformed
 
     private void btnSumTotalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSumTotalMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSumTotalMouseClicked
+
+    private void btnOrderDetailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderDetailActionPerformed
+        // TODO add your handling code here:
+        orderForm1.detailBox("Name : " + txtName.getText()
+                + "\nTime : " + time.getText()
+                + "\nDate : " + date.getText()
+                +"\nFood Ordering   Quantity    Subtotal" 
+                +"\n" + food.toString()
+                +"\nTotal Amount: RM" + txtTotalAmount.getText(), "Customer Detail");
+    }//GEN-LAST:event_btnOrderDetailActionPerformed
+
+    private void txtQty1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtQty1KeyTyped
+        // TODO add your handling code here:
+        char enter = evt.getKeyChar();
+        if(!(Character.isDigit(enter))){ //Let user can only enter digit and show a message for them.
+            evt.consume();
+            orderForm1.warningBox("Only valid for Enter Digits", "Warning");
+            
+        }
+    }//GEN-LAST:event_txtQty1KeyTyped
+
+    private void txtQty2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtQty2KeyTyped
+        // TODO add your handling code here:
+                char enter = evt.getKeyChar();
+        if(!(Character.isDigit(enter))){
+            evt.consume();
+            orderForm1.warningBox("Only valid for Enter Digits", "Warning");
+            
+        }
+    }//GEN-LAST:event_txtQty2KeyTyped
+
+    private void txtQty3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtQty3KeyTyped
+        // TODO add your handling code here:
+                char enter = evt.getKeyChar();
+        if(!(Character.isDigit(enter))){
+            evt.consume();
+            orderForm1.warningBox("Only valid for Enter Digits", "Warning");
+            
+        }
+    }//GEN-LAST:event_txtQty3KeyTyped
+
+    private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
+        // TODO add your handling code here:
+        int clear = 0;
+        double empty = 0;
+            txtQty1.setEnabled(true);
+            txtQty2.setEnabled(true);
+            txtQty3.setEnabled(true);
+            txtName.setEnabled(true);
+            txtContact.setEnabled(true);
+            btnPlaceOrder.setEnabled(false);
+            btnOrderDetail.setEnabled(false);
+            showDate();
+            showTime();
+            
+            txtQty1.setText(String.valueOf(clear));
+            txtQty2.setText(String.valueOf(clear));
+            txtQty3.setText(String.valueOf(clear));
+            txtSubtotal1.setText(String.valueOf(empty));
+            txtSubtotal2.setText(String.valueOf(empty));
+            txtSubtotal3.setText(String.valueOf(empty));
+            txtTotalAmount.setText(String.valueOf(empty));
+            
+    }//GEN-LAST:event_btnResetActionPerformed
 
     /**
      * @param args the command line arguments
@@ -541,10 +707,27 @@ public class orderForm1 extends javax.swing.JFrame {
             }
         });
     }
+    
+    public static void detailBox(String infoMessage, String titleBar)
+    {
+        JOptionPane.showMessageDialog(null, infoMessage,  titleBar, JOptionPane.INFORMATION_MESSAGE);
+    }
+    
+    public static void warningBox(String warningMessage, String title)
+    {
+        JOptionPane.showMessageDialog(null, warningMessage,  title, JOptionPane.WARNING_MESSAGE);
+    }
+    
+    public static void infoBox(String infoMsg, String titleBar)
+    {
+        JOptionPane.showMessageDialog(null, infoMsg,  titleBar, JOptionPane.INFORMATION_MESSAGE);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancel;
+    private javax.swing.JButton btnOrderDetail;
     private javax.swing.JButton btnPlaceOrder;
+    private javax.swing.JButton btnReset;
     private java.awt.Button btnSumTotal;
     private javax.swing.JLabel date;
     private javax.swing.JLabel item1;
@@ -561,10 +744,10 @@ public class orderForm1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JLabel lblRestaurant;
     private javax.swing.JTextField time;
+    private javax.swing.JTextField txtContact;
+    private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtQty1;
     private javax.swing.JTextField txtQty2;
     private javax.swing.JTextField txtQty3;
@@ -577,3 +760,4 @@ public class orderForm1 extends javax.swing.JFrame {
     private javax.swing.JTextField txtprice3;
     // End of variables declaration//GEN-END:variables
 }
+
